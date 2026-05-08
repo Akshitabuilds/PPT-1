@@ -5,12 +5,12 @@ let timeLeft = 30;
 let timer;
 
 
-// TIMER ELEMENT
+
 
 const timerDisplay = document.getElementById("timer");
 
 
-// INPUT FIELDS
+
 
 const fname = document.getElementById("fname");
 
@@ -19,12 +19,11 @@ const lname = document.getElementById("lname");
 const email = document.getElementById("email");
 
 
-// START QUIZ BUTTON
+
 
 const startButton = document.getElementById("startBtn");
 
 
-// PROGRESS BAR
 
 const progressBar = document.getElementById("progressBar");
 
@@ -75,7 +74,7 @@ startButton.addEventListener("click", startQuiz);
 
 
 
-// PROGRESS BAR FUNCTION
+
 
 function updateProgress() {
 
@@ -111,7 +110,7 @@ progressBar.innerHTML = progress + "%";
 
 
 
-// RADIO BUTTON EVENTS
+
 
 const radios = document.querySelectorAll('input[type="radio"]');
 
@@ -122,7 +121,6 @@ radio.addEventListener("change", function(){
 updateProgress();
 
 
-// REMOVE OLD SYMBOLS
 
 const fieldset = radio.closest("fieldset");
 
@@ -134,7 +132,6 @@ span.style.display = "none";
 });
 
 
-// SHOW NEW SYMBOL
 
 const symbol = radio.nextElementSibling.nextElementSibling;
 
@@ -146,8 +143,6 @@ symbol.style.display = "inline";
 
 
 
-
-// SUBMIT BUTTON
 
 document.querySelector('input[type="submit"]')
 .addEventListener("click", function(event){
