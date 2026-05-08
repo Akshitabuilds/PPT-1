@@ -40,6 +40,7 @@ text-align: center;
 line-height: 25px;
 color: white;
 border-radius: 20px;
+transition: 0.5s;
 }
 
 fieldset {
@@ -75,9 +76,21 @@ background-color: darkgreen;
 }
 
 input[type="reset"]:hover {
-    background-color: darkred;
+background-color: darkred;
 }
 
 form {
-    text-align: center;
+text-align: center;
+}
+
+.correct {
+display: none;
+color: green;
+font-weight: bold;
+}
+
+.wrong {
+display: none;
+color: red;
+font-weight: bold;
 }
