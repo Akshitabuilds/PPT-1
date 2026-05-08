@@ -1,0 +1,83 @@
+body {
+background-color: pink;
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+
+h1 {
+text-align: center;
+color: darkblue;
+}
+
+img {
+display: block;
+margin: auto;
+}
+
+.details {
+text-align: center;
+}
+
+input[type="text"],
+input[type="email"] {
+width: 250px;
+padding: 5px;
+margin-bottom: 10px;
+}
+
+.progress-container {
+width: 100%;
+background-color: #ddd;
+border-radius: 20px;
+margin-bottom: 15px;
+}
+
+.progress-bar {
+width: 0%;
+height: 25px;
+background-color: green;
+text-align: center;
+line-height: 25px;
+color: white;
+border-radius: 20px;
+}
+
+fieldset {
+border: 2px solid purple;
+padding: 10px;
+margin-bottom: 15px;
+}
+
+legend {
+font-weight: bold;
+color: purple;
+}
+
+input[type="submit"] {
+padding: 8px 15px;
+background-color: green;
+color: white;
+border: none;
+cursor: pointer;
+margin-right: 10px;
+}
+
+input[type="reset"] {
+padding: 8px 15px;
+background-color: red;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+input[type="submit"]:hover {
+background-color: darkgreen;
+}
+
+input[type="reset"]:hover {
+    background-color: darkred;
+}
+
+form {
+    text-align: center;
+}
