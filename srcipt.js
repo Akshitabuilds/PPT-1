@@ -4,129 +4,133 @@ let timeLeft = 60;
 
 let timer;
 
-const detailsInputs = document.querySelectorAll(
-    "#fname, #mname, #lname, #email"
-);
-
-const progressBar = document.getElementById("progressBar");
 
 const timerDisplay = document.getElementById("timer");
 
-const allQuestions = document.querySelectorAll(
-    'input[type="radio"]'
-);
+const fname = document.getElementById("fname");
+
+const lname = document.getElementById("lname");
+
+const email = document.getElementById("email");
 
 
-// START TIMER AFTER DETAILS FILLED
+document.querySelectorAll("input[type='text'], input[type='email']")
+.forEach(input => {
 
-detailsInputs.forEach(input => {
+input.addEventListener("input", function () {
 
-    input.addEventListener("change", startTimerOnce);
+if (
+fname.value !== "" &&
+lname.value !== "" &&
+email.value !== "" &&
+!timerStarted
+) {
+
+timerStarted = true;
+
+timer = setInterval(function () {
+
+timeLeft--;
+
+timerDisplay.innerHTML = timeLeft;
+
+if (timeLeft <= 0) {
+
+clearInterval(timer);
+
+alert("Time Up!");
+
+}
+
+}, 1000);
+
+}
+
+});
 
 });
 
 
-function startTimerOnce() {
+const progressBar = document.getElementById("progressBar");
 
-    const fname = document.getElementById("fname").value;
+const radios = document.querySelectorAll("input[type='radio']");
 
-    const lname = document.getElementById("lname").value;
+radios.forEach(radio => {
 
-    const email = document.getElementById("email").value;
-
-    if (fname !== "" && lname !== "" && email !== "" && !timerStarted) {
-
-        timerStarted = true;
-
-        timer = setInterval(() => {
-
-            timeLeft--;
-
-            timerDisplay.innerText = timeLeft;
-
-            if (timeLeft <= 0) {
-
-                clearInterval(timer);
-
-                alert("Time is up!");
-
-                document.querySelector(
-                    'input[type="submit"]'
-                ).disabled = true;
-            }
-
-        }, 1000);
-    }
-}
-
-
-// PROGRESS BAR
-
-allQuestions.forEach(question => {
-
-    question.addEventListener("change", updateProgress);
+radio.addEventListener("change", updateProgress);
 
 });
 
 
 function updateProgress() {
 
-    let answered = 0;
+let answered = 0;
 
-    const q1 = document.querySelector(
-        'input[name="question1"]:checked'
-    );
+if(document.querySelector('input[name="q1"]:checked'))
+answered++;
 
-    const q2 = document.querySelector(
-        'input[name="question2"]:checked'
-    );
+if(document.querySelector('input[name="q2"]:checked'))
+answered++;
 
-    const q3 = document.querySelector(
-        'input[name="question3"]:checked'
-    );
+if(document.querySelector('input[name="q3"]:checked'))
+answered++;
 
-    if (q1) answered++;
+let progress = (answered / 3) * 100;
 
-    if (q2) answered++;
+progressBar.style.width = progress + "%";
 
-    if (q3) answered++;
+progressBar.innerHTML = progress + "%";
 
-    let progress = (answered / 3) * 100;
-
-    progressBar.style.width = progress + "%";
-
-    progressBar.innerText = progress + "%";
 }
 
 
-// SUBMIT BUTTON
+radios.forEach(radio => {
 
-document.querySelector(
-    'input[type="submit"]'
-).addEventListener("click", function (event) {
+radio.addEventListener("change", function() {
 
-    event.preventDefault();
+const parentFieldset = radio.closest("fieldset");
 
-    let score = 0;
+parentFieldset.querySelectorAll(".correct, .wrong")
+.forEach(span => {
 
-    const answers = document.querySelectorAll(
-        'input[type="radio"]:checked'
-    );
+span.style.display = "none";
 
-    answers.forEach(answer => {
+});
 
-        if (answer.value === "correct") {
+if(radio.value === "correct") {
 
-            score++;
+radio.nextElementSibling.nextElementSibling.style.display = "inline";
 
-        }
+}
+else {
 
-    });
+radio.nextElementSibling.nextElementSibling.style.display = "inline";
 
-    alert(
-        "Quiz Submitted!\nYour Score is: " + score + "/3"
-    );
+}
 
-    clearInterval(timer);
+});
+
+});
+
+
+document.querySelector('input[type="submit"]')
+.addEventListener("click", function(event){
+
+event.preventDefault();
+
+let score = 0;
+
+if(document.getElementById("q1c").checked)
+score++;
+
+if(document.getElementById("q2c").checked)
+score++;
+
+if(document.getElementById("q3b").checked)
+score++;
+
+alert("Quiz Submitted!\nYour Score: " + score + "/3");
+
+clearInterval(timer);
 
 });
