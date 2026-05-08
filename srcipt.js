@@ -5,6 +5,8 @@ let timeLeft = 60;
 let timer;
 
 
+// TIMER
+
 const timerDisplay = document.getElementById("timer");
 
 const fname = document.getElementById("fname");
@@ -13,6 +15,8 @@ const lname = document.getElementById("lname");
 
 const email = document.getElementById("email");
 
+
+// START TIMER
 
 document.querySelectorAll("input[type='text'], input[type='email']")
 .forEach(input => {
@@ -51,6 +55,8 @@ alert("Time Up!");
 });
 
 
+// PROGRESS BAR
+
 const progressBar = document.getElementById("progressBar");
 
 const radios = document.querySelectorAll("input[type='radio']");
@@ -84,6 +90,8 @@ progressBar.innerHTML = progress + "%";
 }
 
 
+// SHOW CORRECT / WRONG SYMBOLS
+
 radios.forEach(radio => {
 
 radio.addEventListener("change", function() {
@@ -112,6 +120,8 @@ radio.nextElementSibling.nextElementSibling.style.display = "inline";
 
 });
 
+
+// SUBMIT BUTTON
 
 document.querySelector('input[type="submit"]')
 .addEventListener("click", function(event){
