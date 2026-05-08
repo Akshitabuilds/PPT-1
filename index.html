@@ -1,59 +1,141 @@
+
 <html>
+
 <head>
+
 <title>Experiential Activity</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+
 <h1>QUIZWHIZ MINDSPARK APPLICATION</h1>
+
 <img src="Quizakshita.jpg" width="150" height="180">
+
 <hr>
+
+<form>
+
 <div class="details">
+
 <h2>Enter your details to start:</h2>
+
 <label>First Name:</label><br>
 <input type="text" id="fname" placeholder="firstname"><br>
+
 <label>Middle Name:</label><br>
 <input type="text" id="mname" placeholder="middlename"><br>
+
 <label>Last Name:</label><br>
 <input type="text" id="lname" placeholder="lastname"><br>
+
 <label>Email:</label><br>
 <input type="email" id="email" placeholder="email"><br><br>
+
 </div>
-<h3>Simple Quiz</h3>
+
+
 <div class="progress-container">
+
 <div class="progress-bar" id="progressBar">0%</div>
+
 </div>
+
+
 <h3>Time Left: <span id="timer">60</span> seconds</h3>
-<form>
+
+
+<h3>Simple Quiz</h3>
+
+
 <fieldset>
+
 <legend>Question 1</legend>
+
 <p>How many days in a week?</p>
-<input type="radio" name="question1" value="wrong"> 5 <br>
-<input type="radio" name="question1" value="wrong"> 6 <br>
-<input type="radio" name="question1" value="correct"> 7 <br>
-<input type="radio" name="question1" value="wrong"> 8 <br>
+
+<input type="radio" name="q1" id="q1a" value="wrong">
+<label for="q1a">5</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
+<input type="radio" name="q1" id="q1b" value="wrong">
+<label for="q1b">6</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
+<input type="radio" name="q1" id="q1c" value="correct">
+<label for="q1c">7</label>
+<span class="correct"> ✔ Correct</span><br>
+
+<input type="radio" name="q1" id="q1d" value="wrong">
+<label for="q1d">8</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
 </fieldset>
-<br>
+
+
 <fieldset>
+
 <legend>Question 2</legend>
+
 <p>Which is not a fruit?</p>
-<input type="radio" name="question2" value="wrong"> Apple <br>
-<input type="radio" name="question2" value="wrong"> Mango <br>
-<input type="radio" name="question2" value="correct"> Potato <br>
-<input type="radio" name="question2" value="wrong"> Banana <br>
+
+<input type="radio" name="q2" id="q2a" value="wrong">
+<label for="q2a">Apple</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
+<input type="radio" name="q2" id="q2b" value="wrong">
+<label for="q2b">Mango</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
+<input type="radio" name="q2" id="q2c" value="correct">
+<label for="q2c">Potato</label>
+<span class="correct"> ✔ Correct</span><br>
+
+<input type="radio" name="q2" id="q2d" value="wrong">
+<label for="q2d">Banana</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
 </fieldset>
-<br>
+
+
 <fieldset>
+
 <legend>Question 3</legend>
+
 <p>Which is a color?</p>
-<input type="radio" name="question3" value="wrong"> Dog <br>
-<input type="radio" name="question3" value="correct"> Blue <br>
-<input type="radio" name="question3" value="wrong"> Table <br>
-<input type="radio" name="question3" value="wrong"> Chair <br>
+
+<input type="radio" name="q3" id="q3a" value="wrong">
+<label for="q3a">Dog</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
+<input type="radio" name="q3" id="q3b" value="correct">
+<label for="q3b">Blue</label>
+<span class="correct"> ✔ Correct</span><br>
+
+<input type="radio" name="q3" id="q3c" value="wrong">
+<label for="q3c">Table</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
+<input type="radio" name="q3" id="q3d" value="wrong">
+<label for="q3d">Chair</label>
+<span class="wrong"> ❌ Incorrect</span><br>
+
 </fieldset>
+
 <br>
+
 <input type="submit" value="Submit">
+
 <input type="reset" value="Reset">
+
 </form>
+
+
 <script src="script.js"></script>
+
 </body>
+
 </html>
