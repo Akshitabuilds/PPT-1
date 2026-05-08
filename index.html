@@ -1,40 +1,59 @@
 <html>
+<head>
 <title>Experiential Activity</title>
-<head> Akshita Gorpati CS25066 </head>
-<body bgcolor = "pink"> 
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 <h1>QUIZWHIZ MINDSPARK APPLICATION</h1>
-<img src="C:\Users\Dell\Downloads\Quizakshita.jpg" width="150" height="180"> <hr>
-<h2>Enter your details to start:</h2> 
-<label>First Name:</label><br> 
-<input type ="text" placeholder ="firstname"><br> 
+<img src="Quizakshita.jpg" width="150" height="180">
+<hr>
+<div class="details">
+<h2>Enter your details to start:</h2>
+<label>First Name:</label><br>
+<input type="text" id="fname" placeholder="firstname"><br>
 <label>Middle Name:</label><br>
-<input type = "text" placeholder ="middlename"><br> 
+<input type="text" id="mname" placeholder="middlename"><br>
 <label>Last Name:</label><br>
-<input type = "text" placeholder = "lastname"><br>
-<label>Email:</label><br> <input type = "email"placeholder = "email"><br> <br> <h3>Simple Quiz</h3>
-<fieldset> 
-<legend>Question 1</legend> 
-<p>How many days in a week?</p> 
-<input type="radio" name="question1"> 5 <br> <input type="radio" 
-name="question1"> 6 <br>
-<input type="radio" name="question1"> 7 <br> 
-<input type="radio" name="question1"> 8 <br> 
-</fieldset> <br> 
+<input type="text" id="lname" placeholder="lastname"><br>
+<label>Email:</label><br>
+<input type="email" id="email" placeholder="email"><br><br>
+</div>
+<h3>Simple Quiz</h3>
+<div class="progress-container">
+<div class="progress-bar" id="progressBar">0%</div>
+</div>
+<h3>Time Left: <span id="timer">60</span> seconds</h3>
+<form>
+<fieldset>
+<legend>Question 1</legend>
+<p>How many days in a week?</p>
+<input type="radio" name="question1" value="wrong"> 5 <br>
+<input type="radio" name="question1" value="wrong"> 6 <br>
+<input type="radio" name="question1" value="correct"> 7 <br>
+<input type="radio" name="question1" value="wrong"> 8 <br>
+</fieldset>
+<br>
 <fieldset>
 <legend>Question 2</legend>
 <p>Which is not a fruit?</p>
-<input type="radio" name="question2"> Apple <br> 
-<input type="radio" name="question2"> Mango <br>
-<input type="radio" name="question2"> Potato <br>
-<input type="radio" name="question2"> Banana <br>
+<input type="radio" name="question2" value="wrong"> Apple <br>
+<input type="radio" name="question2" value="wrong"> Mango <br>
+<input type="radio" name="question2" value="correct"> Potato <br>
+<input type="radio" name="question2" value="wrong"> Banana <br>
+</fieldset>
+<br>
 <fieldset>
 <legend>Question 3</legend>
-<p>Which is a color?</p> 
-<input type="radio" name="question3"> Dog <br>
-<input type="radio" name="question3"> Blue <br> 
-<input type="radio" name="question3"> Table <br> 
-<input type="radio" name="question3"> Chair <br> </fieldset> 
-<input type ="Submit" value ="Submit">
-<input type ="Reset" >
+<p>Which is a color?</p>
+<input type="radio" name="question3" value="wrong"> Dog <br>
+<input type="radio" name="question3" value="correct"> Blue <br>
+<input type="radio" name="question3" value="wrong"> Table <br>
+<input type="radio" name="question3" value="wrong"> Chair <br>
+</fieldset>
+<br>
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</form>
+<script src="script.js"></script>
 </body>
 </html>
