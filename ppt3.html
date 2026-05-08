@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Experiential Activity</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    margin: auto;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+input[type="text"], input[type="email"] {
+    width: 80%;
+    padding: 8px;
+    margin: 5px;
+}
+
+.progress-container {
+    width: 100%;
+    background: #ddd;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    height: 20px;
+    width: 0%;
+    background: green;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    transition: width 0.5s;
+}
+
+#timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 10px;
+}
+
+fieldset {
+    margin: 15px;
+    padding: 10px;
+    text-align: left;
+}
+
+.correct, .wrong {
+    display: none;
+    font-weight: bold;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.correct { color: green; }
+.wrong { color: red; }
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    background: gray;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>QUIZWHIZ MINDSPARK APPLICATION</h1>
+
+<img src="Quizakshita.jpg" width="150" height="180">
+<hr>
+
+<div id="timer">Time Left: 30s</div>
+
+<form id="quizForm">
+
+<div class="details">
+<h2>Enter your details to start:</h2>
+
+<input type="text" placeholder="First Name" required><br>
+<input type="text" placeholder="Middle Name"><br>
+<input type="text" placeholder="Last Name" required><br>
+<input type="email" placeholder="Email" required><br><br>
+
+<button type="button" id="startBtn">Start Quiz</button>
+</div>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar">0%</div>
+</div>
+
+<h3>Simple Quiz</h3>
+
+<!-- Question 1 -->
+<fieldset>
+<legend>Question 1</legend>
+<p>How many days in a week?</p>
+
+<input type="radio" name="q1" id="q1a" disabled>5<br>
+<input type="radio" name="q1" id="q1b" disabled>6<br>
+<input type="radio" name="q1" id="q1c" disabled>7
+<span class="correct"> ✔ Correct</span><br>
+<input type="radio" name="q1" id="q1d" disabled>8<br>
+
+<span class="wrong"> ❌ Incorrect</span>
+</fieldset>
+
+<!-- Question 2 -->
+<fieldset>
+<legend>Question 2</legend>
+<p>Which is not a fruit?</p>
+
+<input type="radio" name="q2" id="q2a" disabled>Apple<br>
+<input type="radio" name="q2" id="q2b" disabled>Mango<br>
+<input type="radio" name="q2" id="q2c" disabled>Potato
+<span class="correct"> ✔ Correct</span><br>
+<input type="radio" name="q2" id="q2d" disabled>Banana<br>
+
+<span class="wrong"> ❌ Incorrect</span>
+</fieldset>
+
+<!-- Question 3 -->
+<fieldset>
+<legend>Question 3</legend>
+<p>Which is a color?</p>
+
+<input type="radio" name="q3" id="q3a" disabled>Dog<br>
+<input type="radio" name="q3" id="q3b" disabled>Blue
+<span class="correct"> ✔ Correct</span><br>
+<input type="radio" name="q3" id="q3c" disabled>Table<br>
+<input type="radio" name="q3" id="q3d" disabled>Chair<br>
+
+<span class="wrong"> ❌ Incorrect</span>
+</fieldset>
+
+<br>
+
+<button type="submit">Submit</button>
+<button type="reset" class="reset-btn">Reset</button>
+
+</form>
+
+<script>
+
+const answers = {
+q1: "q1c",
+q2: "q2c",
+q3: "q3b"
+};
+
+let totalQuestions = 3;
+let answered = 0;
+let timerStarted = false;
+let timeLeft = 30;
+let countdown;
+document.getElementById("startBtn").addEventListener("click", () => {
+ if (timerStarted) return;
+ timerStarted = true;
+ document.querySelectorAll("input[type='radio']").forEach(r => {
+ r.disabled = false;
+ });
+ countdown = setInterval(() => {
+ timeLeft--;
+ document.getElementById("timer").innerText = "Time Left: " + timeLeft + "s";
+if (timeLeft <= 0) {
+clearInterval(countdown);
+alert("Time's up!");
+document.querySelectorAll("input[type='radio']").forEach(r => r.disabled = true);
+ }
+}, 1000);
+});
+document.querySelectorAll("input[type='radio']").forEach(radio => {
+radio.addEventListener("change", function() {
+let fieldset = this.closest("fieldset");
+let correct = fieldset.querySelector(".correct");
+let wrong = fieldset.querySelector(".wrong");
+
+correct.style.display = "inline";
+wrong.style.display = "inline";
+correct.style.opacity = "0";
+wrong.style.opacity = "0";
+if (answers[this.name] === this.id) {
+correct.style.opacity = "1";
+} else {
+wrong.style.opacity = "1";
+ }
+document.getElementsByName(this.name).forEach(opt => opt.disabled = true);
+answered++;
+let percent = Math.floor((answered / totalQuestions) * 100);
+let bar = document.getElementById("progressBar");
+bar.style.width = percent + "%";
+bar.innerText = percent + "%";
+    });
+});
+document.getElementById("quizForm").addEventListener("submit", function(e){
+e.preventDefault();
+clearInterval(countdown);
+alert("Quiz submitted!");
+});
+</script>
+</body>
+</html>
