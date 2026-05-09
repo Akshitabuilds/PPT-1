@@ -28,7 +28,6 @@ const startButton = document.getElementById("startBtn");
 const progressBar = document.getElementById("progressBar");
 
 
-// START TIMER FUNCTION
 
 function startQuiz() {
 
@@ -68,7 +67,6 @@ alert("Please fill all details first");
 }
 
 
-// START BUTTON EVENT
 
 startButton.addEventListener("click", startQuiz);
 
